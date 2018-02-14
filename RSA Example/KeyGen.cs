@@ -36,7 +36,7 @@ namespace RSA_Example
 
                 q = ReturnPositive(q, randomValues);
 
-            } while (!FermatTest(q, 100));
+            } while (!FermatTest(q, 200));
             Console.WriteLine("Generated q");
             do
             {
@@ -44,7 +44,7 @@ namespace RSA_Example
                 p = new BigInteger(randomValues);
 
                 p = ReturnPositive(p, randomValues);
-            } while (!FermatTest(p, 100) && (p == q));
+            } while (!FermatTest(p, 200) && (p == q));
 
             /*do
             {
@@ -98,9 +98,9 @@ namespace RSA_Example
                     temp = new BigInteger(tempNumber);
                     temp = ReturnPositive(temp, tempNumber);
 
-                } while (temp < 2 && (temp > (number - 2)) );
+                } while (temp > 2 && (temp > (number - 2)) );
 
-                if (BigInteger.ModPow(temp, number - 1, number) != 1) return false;
+                if (BigInteger.ModPow(temp, number - BigInteger.One, number) != BigInteger.One) return false;
             }
 
             return true;
