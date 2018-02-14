@@ -35,6 +35,23 @@ namespace RSA_Example
                 q = new BigInteger(randomValues);
 
                 q = ReturnPositive(q, randomValues);
+
+            } while (!FermatTest(q, 100));
+            Console.WriteLine("Generated q");
+            do
+            {
+                provider.GetBytes(randomValues);
+                p = new BigInteger(randomValues);
+
+                p = ReturnPositive(p, randomValues);
+            } while (!FermatTest(p, 100) && (p == q));
+
+            /*do
+            {
+                provider.GetBytes(randomValues);
+                q = new BigInteger(randomValues);
+
+                q = ReturnPositive(q, randomValues);
                 
             } while (!MillerRabin(q, 100));
             Console.WriteLine("Generated q");
@@ -45,6 +62,7 @@ namespace RSA_Example
 
                 p = ReturnPositive(p, randomValues);
             } while (!MillerRabin(p, 100) && (p == q));
+            */
         }
 
         private BigInteger ReturnPositive(BigInteger temp, byte[] v)
@@ -65,13 +83,29 @@ namespace RSA_Example
 
         }
 
+        private bool FermatTest(BigInteger number, int k)
+        {
 
-        /// <summary>
-        /// Primality test
-        /// </summary>
-        /// <param name="number"></param>
-        /// <param name="k"></param>
-        /// <returns></returns>
+            RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
+            byte[] tempNumber = new byte[(bits / 8) / 2];
+            BigInteger temp;
+
+            for (int i = 0; i < k; ++i)
+            {
+                do
+                {
+                    rng.GetBytes(tempNumber);
+                    temp = new BigInteger(tempNumber);
+                    temp = ReturnPositive(temp, tempNumber);
+
+                } while (temp < 2 && (temp > (number - 2)) );
+
+                if (BigInteger.ModPow(temp, number - 1, number) != 1) return false;
+            }
+
+            return true;
+        }
+
         private bool MillerRabin(BigInteger number, int k)
         {
             if (number == 2 || number == 3) // 2,3 are primes

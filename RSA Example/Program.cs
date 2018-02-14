@@ -16,7 +16,7 @@ namespace RSA_Example
             KeyGen keys = new KeyGen(64);
 
             keys.GenerateKeys();
-            BigInteger cipher = keys.Encrypt(420);
+            BigInteger cipher = keys.Encrypt(11);
             BigInteger ms = keys.Decrypt(cipher);
             Console.WriteLine(ms);
 

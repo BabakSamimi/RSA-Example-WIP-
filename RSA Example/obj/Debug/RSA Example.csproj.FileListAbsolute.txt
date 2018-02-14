@@ -5,3 +5,10 @@ C:\dev\RSA Example\RSA Example\obj\Debug\RSA Example.csprojResolveAssemblyRefere
 C:\dev\RSA Example\RSA Example\obj\Debug\RSA Example.csproj.CoreCompileInputs.cache
 C:\dev\RSA Example\RSA Example\obj\Debug\RSA Example.exe
 C:\dev\RSA Example\RSA Example\obj\Debug\RSA Example.pdb
+C:\dev\RSA-Example-WIP-\RSA Example\bin\Debug\RSA Example.exe.config
+C:\dev\RSA-Example-WIP-\RSA Example\bin\Debug\RSA Example.exe
+C:\dev\RSA-Example-WIP-\RSA Example\bin\Debug\RSA Example.pdb
+C:\dev\RSA-Example-WIP-\RSA Example\obj\Debug\RSA Example.csprojResolveAssemblyReference.cache
+C:\dev\RSA-Example-WIP-\RSA Example\obj\Debug\RSA Example.csproj.CoreCompileInputs.cache
+C:\dev\RSA-Example-WIP-\RSA Example\obj\Debug\RSA Example.exe
+C:\dev\RSA-Example-WIP-\RSA Example\obj\Debug\RSA Example.pdb
