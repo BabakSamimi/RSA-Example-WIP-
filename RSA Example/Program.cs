@@ -13,7 +13,7 @@ namespace RSA_Example
         static void Main(string[] args)
         {
 
-            KeyGen keys = new KeyGen(64);
+            KeyGen keys = new KeyGen(32);
 
             keys.GenerateKeys();
             BigInteger cipher = keys.Encrypt(11);

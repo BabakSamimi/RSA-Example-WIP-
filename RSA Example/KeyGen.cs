@@ -98,7 +98,7 @@ namespace RSA_Example
                     temp = new BigInteger(tempNumber);
                     temp = ReturnPositive(temp, tempNumber);
 
-                } while (temp > 2 && (temp > (number - 2)) );
+                } while (!(temp > 2 && (temp < (number - 2))) );
 
                 if (BigInteger.ModPow(temp, number - BigInteger.One, number) != BigInteger.One) return false;
             }
