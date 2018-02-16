@@ -10,17 +10,26 @@ namespace RSA_Example
 {
     class Program
     {
+
         static void Main(string[] args)
         {
 
-            KeyGen keys = new KeyGen(32);
+
+            KeyGen keys = new KeyGen(2048);
 
             keys.GenerateKeys();
-            BigInteger cipher = keys.Encrypt(11);
-            BigInteger ms = keys.Decrypt(cipher);
-            Console.WriteLine(ms);
 
-            Console.ReadKey();
+            while (true)
+            {
+                byte[] msg = Encoding.UTF8.GetBytes(Console.ReadLine());
+
+                byte[] cipher = keys.Encrypt(msg);
+                byte[] decipher = keys.Decrypt(cipher);
+                string decipher_string = Encoding.UTF8.GetString(decipher);
+                Console.WriteLine("\nThe message was: " + decipher_string);
+
+            }
+
 
         }
     }
